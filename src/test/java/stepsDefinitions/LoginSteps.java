@@ -1,32 +1,30 @@
 package stepsDefinitions;
 
-import static utils.Utils.*;
+import static org.junit.Assert.assertEquals;
+import static utils.Utils.driver;
+import static utils.Utils.na;
 
 import org.openqa.selenium.By;
-
-import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import pageObjects.LoginPage;
 
 public class LoginSteps {
-	
-	LoginPage loginPage = new LoginPage();
-	
+		
 	@Quando("eu informar o usuario {string}")
 	public void euInformarOUsuario(String usuario) {
-	    loginPage.informarCampoUsuario(usuario);
+		na(LoginPage.class).informarCampoUsuario(usuario);
 	}
 
 	@Quando("informar a senha {string}")
 	public void informarASenha(String senha) {
-	    loginPage.informarCampoSenha(senha);
+		na(LoginPage.class).informarCampoSenha(senha);
 	}
 
 	@Quando("clicar no botao login")
 	public void clicarNoBotaoLogin() {
-	    loginPage.acionarBotaoLogin();
+		na(LoginPage.class).acionarBotaoLogin();
 	}
 
 	@Entao("o sistema exibe a mensagem de usuario invalido")
@@ -36,7 +34,7 @@ public class LoginSteps {
 
 	@Entao("o sistema exibe o usuario logado")
 	public void oSistemaExibeOUsuarioLogado() {
-	    assertEquals("Welcome QQQQ", driver.findElement(By.id("welcome")).getText());
+	    assertEquals("Welcome Vishwajeet", driver.findElement(By.id("welcome")).getText());
 	}
 
 }
