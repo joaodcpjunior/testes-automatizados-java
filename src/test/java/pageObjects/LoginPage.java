@@ -4,10 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
+	
+	//também é possivel mapear elementos com xpath: https://www.w3schools.com/xml/xpath_intro.asp, cssSelector e id
 
 	@FindBy(name = "txtUsername")
 	private WebElement campoUsuario;
 
+	//@FindBy(xpath = "//div[@id='divPassword']/input[@name='txtPassword']")
 	@FindBy(name = "txtPassword")
 	private WebElement campoSenha;
 
