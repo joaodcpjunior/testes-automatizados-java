@@ -2,9 +2,13 @@ package utils;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import io.cucumber.core.api.Scenario;
 
 public class Utils {
 	
@@ -23,4 +27,8 @@ public class Utils {
 		return PageFactory.initElements(driver, classe);
 	}
 
+	public static void capturarTela(Scenario scenario) {
+		final byte[] screenchot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		scenario.embed(screenchot, "image/png");
+	}
 }

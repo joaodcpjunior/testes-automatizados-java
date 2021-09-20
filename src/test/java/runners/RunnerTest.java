@@ -8,10 +8,9 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		plugin = {"pretty"},
+		plugin = {"pretty", "html:target/cucumber-report"},
 		features = "src/test/resources/features",
 		glue = "stepsDefinitions",
-		tags = "@dropdown",
 		snippets = SnippetType.CAMELCASE, //prop para gerar os metodos dos step tests em camel case
 		monochrome = false,//prop pra deixar tudo branco no console
 		dryRun = false //prop para gerar apenas os step tests faltantes, sem executar todo o processo
